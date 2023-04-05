@@ -1,0 +1,22 @@
+{% extends 'nav.html' %}
+{% block nav %}
+<h1 class="bg-danger text-center">Confirm Delete</h1>
+<h4>Are You Sure?</h4>
+<div class="container">
+    <div class="card mb-g bg-light" style="width: 100px">
+        {% if object.image %}
+        <img  class="card-image-top" src="{{onject.image.url}}" alt="Card image">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-tittle">{{object.caption}}</h5>
+            <p class="card-text">{{object.datetime}}</p>
+        </div>
+    </div>
+</div>
+<form method="post">
+    {% csrf_token %}
+    <div class="container">
+        <button class="btn btn-danger">CONFIRM</button>
+    </div>
+</form>
+{% endblock nav %}
